@@ -51,7 +51,7 @@ let handleye = () => {
             <input id="remember" type="checkbox" defaultValue className="w-4 h-4 border border-default-medium rounded-xs bg-neutral-secondary-medium focus:ring-2 focus:ring-brand-soft" required />
             <p className="ms-2 text-sm font-medium text-heading select-none">I agree with the <a href="#" className="text-fg-brand hover:underline">terms and conditions</a>.</p>
           </label>
-          <button onClick={(e)=> handleClick(e)} type="submit" className="text-white cursor-pointer bg-black rounded border-none box-border border border-transparent hover:bg-brand-strong  shadow-xs font-medium leading-5 rounded-base text-sm px-4 py-2.5 focus:outline-none ">Submit</button>
+          <button onClick={(e)=> handleClick(e)} type="submit" className="text-white cursor-pointer bg-black rounded border-none box-border border border-transparent hover:bg-brand-strong hover:bg-purple-600 shadow-xs font-medium leading-5 rounded-base text-sm px-4 py-2.5 focus:outline-none ">Submit</button>
         </form>
     </div>
               
