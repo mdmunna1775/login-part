@@ -28,7 +28,8 @@ let handleye = () => {
   return(
     <>
     <div className='center mt-50'>
-        <form className="max-w-sm mx-auto border border-gray-300 p-5 rounded-lg bg-blue-400 ">
+        <form className="max-w-sm mx-auto border border-gray-300 p-10 rounded-lg bg-blue-400 ">
+      <h2 className='text-black text-3xl font-bold pb-10 text-center'>Registration form</h2>
           <div className="mb-5">
             <label htmlFor="email" className="block mb-2.5 text-sm font-medium text-heading">Your email</label>
             <input  onChange={(e)=>setEmail(e.target.value)} type="email" id="email" className="bg-neutral-secondary-medium border-none focus:outline-none bg-amber-50 rounded border-default-medium text-heading text-sm rounded-base focus:ring-brand focus:border-brand block w-full px-3 py-2.5 shadow-xs placeholder:text-body" placeholder="name@flowbite.com" required />
