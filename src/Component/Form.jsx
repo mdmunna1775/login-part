@@ -1,21 +1,34 @@
-import './app.css'
 import { useState,useEffect } from 'react'
 import { FaRegEyeSlash } from "react-icons/fa";
 import { IoEyeOutline } from "react-icons/io5";
 
 
 
-function app() {
+function Form() {
 
   let [email,setEmail] = useState("");
   let [password,setpassword] = useState("");
   let [show,setShow] = useState(false);
-  
-  
+  let [emailError,setEmailError] = useState("")
+  let [passwordError,setPasswordError] = useState("")
+  let handleemailchange =(e)=> {
+    setEmail(e.target.value)
+    setEmailError("")
+  }
+ let handlepasswordchange =(e)=>{
+   setpassword(e.target.value)
+   setPasswordError("")
+ }
     let handleClick = (e) => {
       e.preventDefault()
       if(email == ""){
-      alert("please fill in all tha fields")
+      setEmailError("please fill in tha email field")
+      }
+      if(password==""){
+        setPasswordError("please fill in tha password field")
+      } 
+      if(password.length !=8){
+        setPasswordError("only 8 characters allowed")
       }
     }
     
@@ -29,16 +42,18 @@ let handleye = () => {
     <>
     <div className='center mt-50'>
         <form className="max-w-sm mx-auto border border-gray-300 p-10 rounded-lg bg-blue-400 ">
-      <h2 className='text-black text-3xl font-bold pb-10 text-center'>Registration form</h2>
+              <h2 className='text-black text-3xl font-bold pb-10 text-center'>Registration form</h2>
           <div className="mb-5">
             <label htmlFor="email" className="block mb-2.5 text-sm font-medium text-heading">Your email</label>
-            <input  onChange={(e)=>setEmail(e.target.value)} type="email" id="email" className="bg-neutral-secondary-medium border-none focus:outline-none bg-amber-50 rounded border-default-medium text-heading text-sm rounded-base focus:ring-brand focus:border-brand block w-full px-3 py-2.5 shadow-xs placeholder:text-body" placeholder="name@flowbite.com" required />
-             
+            <input  onChange={handleemailchange} type="email" id="email" className="bg-neutral-secondary-medium border-none focus:outline-none bg-amber-50 rounded border-default-medium text-heading text-sm rounded-base focus:ring-brand focus:border-brand block w-full px-3 py-2.5 shadow-xs placeholder:text-body" placeholder="name@flowbite.com" required />
+             <p className='text-white'>{emailError}</p>
           </div>
           <div className="mb-5">
             <label htmlFor="password" className="block mb-2.5 text-sm font-medium text-heading">Your password</label>
             <div className='relative'>
-            <input onChange={(e)=>setpassword(e.target.value)} type = {show ? "password" : "text"} id="password" className=" bg-neutral-secondary-medium border-none focus:outline-none bg-amber-50 rounded  border-default-medium text-heading text-sm rounded-base focus:ring-brand focus:border-brand block w-full px-3 py-2.5 shadow-xs placeholder:text-body" placeholder="••••••••" required />
+            <input onChange={handlepasswordchange} type = {show ? "password" : "text"} id="password" className=" bg-neutral-secondary-medium border-none focus:outline-none bg-amber-50 rounded  border-default-medium text-heading text-sm rounded-base focus:ring-brand focus:border-brand block w-full px-3 py-2.5 shadow-xs placeholder:text-body" placeholder="••••••••" required />
+            <p className='text-white'>{passwordError}</p>
+           
 
             {
               show ?
@@ -61,4 +76,4 @@ let handleye = () => {
     </>
   )
 }
-export default app
+export default Form
